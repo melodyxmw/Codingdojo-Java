@@ -1,0 +1,5 @@
+package com.melody.shapes;
+
+public interface Areainterface {
+
+}

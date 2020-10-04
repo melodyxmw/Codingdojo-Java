@@ -1,0 +1,11 @@
+package com.melody.shapes;
+
+public class Line extends Dot {
+
+	@Override
+	public int getLocation() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.melody.controllers;
+
+public class Shinobi extends Ninja {
+
+	public Shinobi(String name, int health, String saying) {
+		super(name, health + 100, saying);
+		// TODO Auto-generated constructor stub
+	}
+
+}

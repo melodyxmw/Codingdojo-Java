@@ -1,0 +1,8 @@
+package com.melody.classes;
+
+import com.melody.shapes.AreaInterface;
+import com.melody.shapes.Rectangle;
+
+public class SuperRectangle extends Rectangle implements AreaInterface {
+
+}

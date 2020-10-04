@@ -1,0 +1,17 @@
+package com.melody.shapes;
+
+public class Rectangle extends Dot implements AreaInterface {
+
+	@Override
+	public int getArea() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getLocation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

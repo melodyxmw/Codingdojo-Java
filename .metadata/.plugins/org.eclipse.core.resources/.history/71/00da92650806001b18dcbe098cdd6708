@@ -1,0 +1,24 @@
+package com.melody.controllers;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ninja example1 = new Ninja("Donatello",150, "whatkdjlfjkal;jfdksflj ajsalfjgh;lajkj;k;ljf l;jafj etojva ");
+		Ninja example2 = new Ninja("Rapheal",130, "pixzajlfjkal;jfdksflj ajsalfjgh;lajkj;k;ljf l;jafj etojva");
+		Ninja example3 = new Ninja("Micheal",100, "banana!");
+		Shinobi example4 = new Shinobi("jeff",150, "apple");
+		
+		int area = AreaCalculator.getArea(10, 10);
+		
+		System.out.println(example1.getSaying());
+		System.out.println(example3.getName());
+		System.out.println(Ninja.numberOfNinjas);
+		
+		example1.strick(example2);
+		example1.strick(example4);
+		
+	}
+	
+
+}
