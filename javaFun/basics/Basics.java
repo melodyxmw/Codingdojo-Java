@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class BasicsJava {
+public class Basics {
     
     public void OneTo255(){
         for (int i =0; i <= 255; i++){
@@ -9,12 +9,20 @@ public class BasicsJava {
         }
     }
 
-    public void OddTo255(){
+    public void PrintOdds(){
         for (int i =1; i <=255; i++){
             if (i % 2 != 0){
                 System.out.println(i);
             }
         }
+    }
+
+    public static int GetArraySum(int[] numbers){
+        int sum = 0;
+        for(int i =0; i< numbers.length; i++){
+            sum += numbers[i];
+        }
+        return sum;
     }
 
     public void PrintSum(){
@@ -38,8 +46,18 @@ public class BasicsJava {
             if(val > currMax){
                 currMax = val;
             }
-            return currMax;
         }
+        return currMax;
+    }
+
+    public int FindMin(int[] arr){
+        int currMin = Integer.MAX_VALUE;
+        for(int val: arr){
+            if(val < currMin){
+                currMin =val;
+            }
+        }
+        return currMin;
     }
 
     public double GetAverage(int[] nums){
@@ -55,25 +73,23 @@ public class BasicsJava {
             if( i % 2 !=0) {
                 nums.add(i);
             }
-        return nums;
         }
+        return nums;
     }
 
-    public int GreaterThanY(int[] arr, int y){
+    public static int GreaterThanY(int[] arr, int y){
         int count = 0;
         for(int num:arr){
             if(num >y){
                 count++;
             }
-        return count;
         }
+        return count;
     }
 
     public void SquareArray(int[] nums){
         for(int i = 0; i < nums.length; i++){
-            if(nums[i] < 0){
-                nums[i] = 0;
-            }
+            nums[i]= nums[i] * nums[i];
         }
     }
 
