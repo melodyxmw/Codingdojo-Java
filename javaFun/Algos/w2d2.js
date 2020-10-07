@@ -1,3 +1,28 @@
+// Queue
+// FIFO (First in, first out)
+
+
+class Queue {
+    constructor() {
+        this.front = null;
+        this.rear = null;
+        this.length = 0;
+    }
+
+    enqueue(node){}
+
+    dequeue(){}
+
+    checkFront(){}
+
+    isEmpty(){}
+
+    length(){
+        return this.length;
+    }
+}
+
+
 // Stacks
 
 // A stack is a LIFO data structure
@@ -106,3 +131,4 @@ function countStack(stack) {
 
     return count;
 };
+
