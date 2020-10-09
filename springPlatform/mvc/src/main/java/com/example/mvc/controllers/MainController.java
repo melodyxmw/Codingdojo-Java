@@ -38,10 +38,10 @@ public class MainController {
     
     @RequestMapping(value="/api/books", method=RequestMethod.POST)
     public Book update(@RequestParam(value="title") String title, 
-    		@RequestParam(value="description") String desc,
-    		@RequestParam(value="language") String lang,
-    		@RequestParam(value="pages") Integer numOfPages) {
-    	Book newBook = new Book(title,desc,lang,numOfPages);
+    					@RequestParam(value="description") String desc,
+    					@RequestParam(value="language") String lang,
+    					@RequestParam(value="pages") Integer numOfPages) {
+    	Book newBook = new Book(title, desc,lang, numOfPages);
       return bookService.createBook(newBook);
     
     }
