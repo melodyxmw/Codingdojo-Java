@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Hello World!</h1>
-	<h1><a href="/create-team">create team</a></h1>
-	<h1><a href="/create-hero">create heroes</a></h1>
+
+	<h1>Welcome User!</h1>
+
 </body>
 </html>
