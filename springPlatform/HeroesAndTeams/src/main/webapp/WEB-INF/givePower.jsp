@@ -12,6 +12,20 @@
 
 	<h1>Add power to <c:out value="${hero.name}"></c:out></h1>
 	
+	
+		<p style="color: red;"><c:out value= "${error}"></c:out></p>
+
+	
+	<c:forEach items="${hero.getPowers()}" var="power">
+		<p><c:out value="${power.name}"></c:out></p>
+		
+		<form action="/remove-power/${power.id}" method="post">
+			<input type="hidden" value="${hero.id}" name="hero_id"/>
+			<button type="submit">remove <c:out value="${power.name}"></c:out></button>
+		</form>
+	
+	</c:forEach>
+	
 	<form action="/add-power/${hero.id }" method="POST">
 		<select name="power_id" >
 			<option selected disabled>pick a power</option>
