@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.mvc.models.Book;
 import com.example.mvc.services.BookService;
@@ -34,7 +35,7 @@ public class BooksController {
 			return "index.jsp";
 		}
 		
-		bookService.createBook(book);
+		bookService.createBook(book); // create new book
 		
 		return "redirect:/books";
 	}
@@ -45,20 +46,20 @@ public class BooksController {
 		return "books.jsp";
 	}
  // other methods removed for brevity
-	@RequestMapping("/books/{id}/edit")
-	public String edit(@PathVariable("id") Long id, Model model) {
-		Book book = bookService.findBook(id);
-		model.addAttribute("book", book);
-		return "/books/edit.jsp";
-	}
- 
-// @RequestMapping(value="/books/{id}", method=RequestMethod.PUT)
-// public String update(@Valid @ModelAttribute("book") Book book, BindingResult result) {
-//     if (result.hasErrors()) {
-//         return "/books/edit.jsp";
-//     } else {
-//         bookService.updateBook(book);
-//         return "redirect:/books";
-//     }
+//	@RequestMapping("/books/{id}/edit")
+//	public String edit(@PathVariable("id") Long id, Model model) {
+//		Book book = bookService.findBook(id);
+//		model.addAttribute("book", book);
+//		return "books.jsp";
+//	}
+ //
+//   @RequestMapping(value="/books/{id}", method=RequestMethod.GET)
+//   public String update(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+//       if (result.hasErrors()) {
+ //          return "/books/edit.jsp";
+   //    } else {
+     //     bookService.updateBook(book);
+   //       return "redirect:/books";
+   //  }
 // }
 }

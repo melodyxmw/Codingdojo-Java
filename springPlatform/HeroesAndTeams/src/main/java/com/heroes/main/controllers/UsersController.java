@@ -35,7 +35,7 @@ import com.heroes.main.validators.UserValidator;
 		return "users/login.jsp";
 	}
  
-	@RequestMapping(value="/registration", method=RequestMethod.POST)
+	@RequestMapping(value="/registration", method=RequestMethod.POST) // model driven controller/route
 	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
 		// if result has errors, return the registration page (don't worry about validations just now)
      // else, save the user in the database, save the user id in session, and redirect them to the /home route
@@ -63,8 +63,9 @@ import com.heroes.main.validators.UserValidator;
 			return "redirect:/create-team";
 		}
 		//failure
-		model.addAttribute("error","Invalid lodin");
-		return "users/registration.jsp";
+		model.addAttribute("error","Invalid login");
+		return "users/login.jsp";
+		//return "users/registration.jsp";
 	}
  
 	@RequestMapping("/home")

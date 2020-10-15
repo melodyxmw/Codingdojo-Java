@@ -55,13 +55,15 @@ public class MainController {
 	@GetMapping("/create-team")
 	public String createTeam(@ModelAttribute("team") Team team, Model model, HttpSession session) {
 		
+		//important
 		if(session.getAttribute("userid") != null) {
 			model.addAttribute("teams", teamService.allTeams());
 			return "createTeam.jsp";	
 		}
 		
 		//model.addAttribute("teams", teamService.allTeams());
-		return "redirect:/registration";
+		return "redirect:/login";
+		//return "redirect:/registration";
 	}
 	
 	@PostMapping("/create-team")

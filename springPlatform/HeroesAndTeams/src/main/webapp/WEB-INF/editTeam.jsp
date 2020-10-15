@@ -11,7 +11,7 @@
 <body>
 	<form:form action="/edit-team/${team.id }" method="POST" modelAttribute="team">
 		<div>
-			<form:errors Path="team.*"> </form:errors>
+			<form:errors path="team.*"> </form:errors>
 		</div>
 		<div>
 			<form:label path="name"></form:label>

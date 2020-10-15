@@ -16,7 +16,7 @@
 	<p><c:out value="${book.id }"></c:out></p>
 	<p><c:out value="${book.title }"></c:out></p>
 	<p><c:out value="${book.description }"></c:out></p>
-	<a href="/books/${book.id }">Edit this book!</a>
+	<a href="/books/${book.id}">Edit this book!</a>
 	</c:forEach>
 </body>
 </html>

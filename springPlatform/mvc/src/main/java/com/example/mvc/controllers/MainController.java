@@ -2,6 +2,7 @@ package com.example.mvc.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +14,10 @@ import com.example.mvc.services.BookService;
 
 @RestController
 public class MainController {
-
+	
+	//@Autowired
+	//private BookService bookService;
+	
     private final BookService bookService;
     
     public MainController(BookService bookService){
@@ -30,7 +34,7 @@ public class MainController {
     		@RequestParam(value="description") String desc, 
     		@RequestParam(value="language") String lang,
     		@RequestParam(value="pages") Integer numOfPages) {
-        Book book = new Book(title, desc, lang, numOfPages);
+        Book book = new Book(title, desc, lang, numOfPages);    //talk to constructor in model,value =" KEYname"
         return bookService.createBook(book);
     }
     
@@ -40,14 +44,15 @@ public class MainController {
         return book;
     }
     
-    @RequestMapping(value="/api/books/{id}", method=RequestMethod.PUT)
-    public Book update(@PathVariable("id") Long id, @RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages) {
-        Book book = bookService.updateBook(id, title, desc, lang, numOfPages);
-        return book;
-    }
+//    @RequestMapping(value="/api/books/{id}", method=RequestMethod.PUT)
+//    public Book update(@PathVariable("id") Long id, @RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages) {
+//        Book book = bookService.updateBook(id, title, desc, lang, numOfPages);
+//        return book;
+//    }
     
     @RequestMapping(value="/api/books/{id}", method=RequestMethod.DELETE)
     public void destroy(@PathVariable("id") Long id) {
         bookService.deleteBook(id);
     }
 }
+

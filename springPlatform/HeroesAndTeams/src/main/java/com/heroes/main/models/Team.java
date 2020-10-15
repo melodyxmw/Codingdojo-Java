@@ -29,8 +29,8 @@ public class Team {
 	@Size(min = 2, max = 200)
 	private String name;
 	
-	@OneToMany(mappedBy ="team", cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
-	private List<Hero> heroes;
+	@OneToMany(mappedBy ="team", cascade=CascadeType.ALL ,fetch=FetchType.LAZY) 
+	private List<Hero> heroes; //relationship
 	
 	@Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")

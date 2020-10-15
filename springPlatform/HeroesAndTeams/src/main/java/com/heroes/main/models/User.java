@@ -1,3 +1,4 @@
+
 package com.heroes.main.models;
 
 import java.util.Date;

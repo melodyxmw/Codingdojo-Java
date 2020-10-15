@@ -12,5 +12,6 @@
 <h1>this is result! </h1>
 <p>Username: <c:out value="${username }"></c:out></p>
 
+
 </body>
 </html>
