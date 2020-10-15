@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.heroes.main.models.Hero;
+import com.heroes.main.models.Power;
 import com.heroes.main.models.Team;
 import com.heroes.main.services.HeroService;
+import com.heroes.main.services.PowerService;
 import com.heroes.main.services.TeamService;
 
 @Controller
@@ -26,9 +29,29 @@ public class MainController {
 	@Autowired
 	private HeroService heroService;
 	
+	@Autowired 
+	private PowerService powerService;
+	
+	@GetMapping("/create-power")
+	public String createPower(@ModelAttribute("power") Power power) {
+		return "createPower.jsp";
+	}
+	
+	@PostMapping("/create-power")
+	public String submitPower(@Valid @ModelAttribute("power") Power power, BindingResult result) {
+		if (result.hasErrors()) {
+			return "createPower.jsp";
+		}
+		
+		powerService.save(power);
+		return "redirect:/create-power";		
+	} 
+	
 	@GetMapping("/create-hero")
-	public String createHero(@ModelAttribute("hero") Hero hero, Model model) {
+	public String createHero(@ModelAttribute("hero") Hero hero, Model model){
 		model.addAttribute("teams",teamService.allTeams());
+		model.addAttribute("heroes",heroService.allHeroes());
+		
 		return "createHero.jsp";
 	}
 	
@@ -88,12 +111,44 @@ public class MainController {
 							@Valid @ModelAttribute("team") Team team, 
 							BindingResult result) {
 		if(result.hasErrors()) {
-			return "edit-team/" + id +" .jsp";			
+			return "edit-team/" + id +".jsp";			
 		}
 		
 		teamService.save(team);	
 		return "redirect:/create-team";
 	}
+	
+	@GetMapping("/add-power/{id}")
+	public String addPower(@PathVariable("id") Long id, Model model) {
+		Hero hero = heroService.findById(id);
+		if(hero == null) {
+			return"redirect:/create-hero";
+		}
+		System.out.println(hero.getPowers());
+		model.addAttribute("hero",hero);
+		model.addAttribute("powers", powerService.allPowers());
+		return "givePower.jsp";
+		
+	}
+	
+	@PostMapping("/add-power/{hero_id}")
+	public String submitPower(@PathVariable("hero_id") Long hero_id,
+								@RequestParam("power_id") Long power_id) {
+		Hero hero = heroService.findById(hero_id);
+		Power power = powerService.findById(power_id);
+		
+		hero.getPowers().add(power);
+		heroService.save(hero);
+				
+		System.out.println(hero_id);
+		System.out.println(power_id);
+		
+		return "redirect:/add-power/" + hero_id;
+	}
+	
+	
+	
+	
 	
 	@PostMapping("/delete-team/{id}")
 	public String delete(@PathVariable("id") Long id) {

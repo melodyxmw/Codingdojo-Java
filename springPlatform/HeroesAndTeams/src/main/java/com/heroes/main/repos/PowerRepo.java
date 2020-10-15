@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.heroes.main.models.Team;
+import com.heroes.main.models.Power;
 
 @Repository
-public interface TeamRepo extends CrudRepository<Team, Long>{
-	List<Team> findAll(); 
+public interface PowerRepo extends CrudRepository<Power, Long>{
+	List<Power> findAll();
 
 }

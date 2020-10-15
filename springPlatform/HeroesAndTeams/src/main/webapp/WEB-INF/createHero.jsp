@@ -16,12 +16,9 @@
 		<form:errors path="name"></form:errors>
 		<form:input path="name"></form:input>
 	</div>
-	<div>
-		<p>Power:</p>
-		<form:label path="power"></form:label>
-		<form:errors path="power"></form:errors>
-		<form:input path="power"></form:input>
-	</div>
+	
+	
+	
 	<div>
 		<p>Team:</p>
 		<form:label path="team"></form:label>
@@ -39,7 +36,12 @@
 		<button type="submit">Create Hero!</button>
 	</div>
 	
-	
 	</form:form>
+	
+	<c:forEach items="${heroes}" var="oneHero">
+				<c:out value="${oneHero.name }"></c:out><br />
+				<a href="/add-power/${oneHero.id }">Add power!</a><br />				
+	</c:forEach>
+	
 </body>
 </html>
